@@ -1,0 +1,63 @@
+<html>
+  <title>Login</title>
+  <head>
+    <style>
+      body {
+        
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: 100% 100%;
+      }
+
+      #main{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      </style>
+  </head>
+  <body background="https://wallpaperaccess.com/full/445836.jpg">
+    <mat-toolbar style="justify-content: space-between;">
+       
+      <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        <div>
+       <span [routerLink]="'/home'" style="padding: 1rem;cursor: pointer;">Home</span>
+       <span [routerLink]="'/aboutus'" style="padding: 1rem;cursor: pointer;">About Us</span>
+       <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Login</span>
+       <span [routerLink]="'/adminlogin'" style="padding: 1rem;cursor: pointer;">Admin Login</span>
+      </div>
+     
+    
+     
+    </mat-toolbar>  
+ 
+    <div id="main">
+      <div style="background-color:white;padding:20px;width: 30%;">
+        <h1><b>Admin Login</b></h1>
+        <form (ngSubmit)="formSubmit()">
+                
+                
+                <mat-form-field appearance="outline" style="width: 100%;">
+                  <mat-label>Email</mat-label>
+
+                  <input [(ngModel)] = "user.email" name="email" matInput type="email" placeholder="Email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Password</mat-label>
+                    <input [(ngModel)] = "user.password" name="password" matInput type="password" placeholder="Password" required>      
+                  </mat-form-field>
+              
+            <button mat-raised-button type="submit" color="primary" style="width: 100%;">Login</button>
+
+        </form>
+ 
+
+        
+        <br><br>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <style>
+            /* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+}
+        </style>
+
+    </head>
+    <body style="padding: 20px;">
+        <mat-toolbar style="justify-content: space-between;">
+       
+            <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+            <div>
+             <span [routerLink]="'/home/'+ uid" style="padding: 1rem;cursor: pointer;">Home</span>
+             <span [routerLink]="'/aboutus/'+ uid" style="padding: 1rem;cursor: pointer;">About Us</span>
+             <span [routerLink]="'/mytrips/'+ uid" style="padding: 1rem;cursor: pointer;">My trips</span>
+             <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Logout</span>
+        
+            </div>
+           
+          
+           
+          </mat-toolbar> 
+
+
+          <br><br><br>
+        <b style="font-size: 30px;">Your Trips</b>
+        <mat-card *ngFor="let d of details;let i = index" style="width: 98%;margin: 10px;">
+            <div style="float: left;font-size: 20px;"><b>{{d['NAME']}}</b></div>
+            <div style="float: right;font-size: 20px;color: green;"><b>₹ {{d['TOTALCOST']}}</b></div>
+            <br><br><br>
+            <form (ngSubmit)="getBoarding(d['BID'])"><div> 
+                <button mat-raised-button type="submit" style="width: 20%;
+                float: right;background-color: green;color: white;">Get Boarding Pass</button>
+            </div></form>
+            <br><br><br>
+            <form (ngSubmit)="formSubmit(d['BID'],d['FLIGHTID'],d['USERID'],d['TOTALCOST'],d['CLASSS'],d['TOTALSEATS'],d['CARDNO'])"><div> 
+                <button mat-raised-button type="submit" style="width: 20%;
+                float: right;background-color: red;color: white;">Cancel Booking</button>
+            </div></form>
+            <br><br><br>
+            <div style="float: left">
+                <div style="text-align: center;font-size: 30px;padding-bottom: 10px;">{{d['DEPARTURETIME']}}</div>
+                <div style="text-align: center;font-size: 15px;">{{d['FROMM']}}</div>
+            </div>
+            <div style="float: right">
+                <div style="text-align: center;font-size: 30px;padding-bottom: 10px;">{{d['ARRIVAL']}}</div>
+                <div style="text-align: center;font-size: 15px;">{{d['TOO']}}</div>
+            </div>
+            <div style="margin: 0 auto; width: 100px;">
+                {{d['TOTALTIME']}}
+            </div>
+            <br>
+            <br>
+            <div class="row" >
+                
+                    
+                
+                <div class="column" style="border-style:solid;border-color: grey; width: 20%;text-align: center;">
+                    <div style="font-size: 20px;padding-bottom: 2%;">Boarding From</div>
+                    <div>{{d['FROMM']}}</div>
+                </div>
+                <div class="column" style="width: 0.1%;"> </div>
+                <div class="column" style="border-style:solid;border-color: grey; width: 20%;text-align: center;">
+                    <div style="font-size: 20px;padding-bottom: 2%;">Boarding Date</div>
+                    <div>{{d['DEPARTUREDATE']}}</div>
+                </div>
+                <div class="column" style="width: 0.1%;"> </div>
+                <div class="column" style="border-style:solid;border-color: grey; width: 20%;text-align: center;">
+                    <div style="font-size: 20px;padding-bottom: 2%;">Boarding Time</div>
+                    <div>{{d['DEPARTURETIME']}}</div>
+                </div>
+                <div class="column" style="width: 0.1%;"> </div>
+
+                <div class="column" style="border-style:solid;border-color: grey; width: 20%;text-align: center;">
+                    <div style="font-size: 20px;padding-bottom: 2%;">TotalSeats</div>
+                    <div>{{d['TOTALSEATS']}}</div>
+                </div>
+              </div>
+
+
+
+            <br>
+        </mat-card>
+        <br>
+    </body>
+</html>

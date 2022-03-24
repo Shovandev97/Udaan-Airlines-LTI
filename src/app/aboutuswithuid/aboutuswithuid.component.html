@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create three equal columns that floats next to each other */
+            .column {
+              float: left;
+              width: 50%;
+              padding: 10px;
+              /* Should be removed. Only for demonstration */
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            </style>
+    </head>
+<header>
+
+
+  
+    <!-- main navigation links -->
+    <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/home/'+ uid" style="padding: 1rem;cursor: pointer;">Home</span>
+         <span [routerLink]="'/aboutus/'+ uid" style="padding: 1rem;cursor: pointer;">About Us</span>
+         <span [routerLink]="'/mytrips/'+ uid" style="padding: 1rem;cursor: pointer;">My trips</span>
+         <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Logout</span>
+    
+        </div>
+       
+      
+       
+      </mat-toolbar> 
+  </header>
+  
+  <body>
+    <div style="width: 60%;height: 30%;margin-left: auto;margin-right: auto;">
+        <div class="row">
+            <div class="column" >
+                <img  src="https://firebasestorage.googleapis.com/v0/b/food-eaters-1df40.appspot.com/o/WhatsApp%20Image%202022-03-23%20at%209.48.35%20AM.jpeg?alt=media&token=584faf81-f937-49f9-a63f-587b89e46cd2" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="100%">
+              
+            </div>
+            <div class="column" >
+                <h2 class="featurette-heading">Shovandev Saha <span class="text-muted">Team Lead</span></h2>
+                <p class="lead">
+                    The master with brains, he's spearheaded this project and made it into what it is today.
+                        There aren't many flaws that miss his sharp gaze and he strives for perfection in every
+                        pool he dips his feet in! The journey of 'Udaan' would never have begun without his so
+                        kudos to our team lead!.</p>
+            </div>
+        </div>
+          <div class="row">
+            
+            <div class="column" >
+                <h2 class="featurette-heading">Akshata Deshpande <span class="text-muted">Team Member</span></h2>
+                <p class="lead">Akshata Deshpande
+                    If Shovandev is the brains, then Akshata's the brawns, quite literally! Her USP is her tunnel vision
+                    and her ability to achieve whatever she zeroes in on. Her indispensable input is the yin to our team
+                    lead's yang! She's the "captain" to our Udaan and we'll always be cheering her on!</p>
+            </div>
+            <div class="column" >
+                <img  src="https://firebasestorage.googleapis.com/v0/b/food-eaters-1df40.appspot.com/o/WhatsApp%20Image%202022-03-23%20at%209.48.36%20AM.jpeg?alt=media&token=fd92d675-639e-4f87-868f-41caccb9251e">
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="column" >
+                <img  src="https://firebasestorage.googleapis.com/v0/b/food-eaters-1df40.appspot.com/o/WhatsApp%20Image%202022-03-23%20at%209.48.35%20AM%20(1).jpeg?alt=media&token=0478d4ab-9a4a-48c3-a779-461b06e3e678" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="100%">
+              
+            </div>
+            <div class="column" >
+                <h2 class="featurette-heading">Utkarsh Srivastava <span class="text-muted">Team Member</span></h2>
+                <p class="lead">As important as the contents of a gift are, so is the gift wrapping. And Utkarsh Srivastava the
+                    glitter paper and satin bow to the gift that Udaan has been for him as well as his four teammates.
+                    he's here for this 'udaan' for the long haul so all the luck to him!</p>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="column" >
+                <h2 class="featurette-heading">Jyothi Reddy <span class="text-muted">Team Member</span></h2>
+                <p class="lead">
+                    They say too many cooks spoil the broth, but in our case, all they do is make the journey more
+                        beautiful! Udaan would not look as appealing as it does without Jyothi's immaculate taste! She's
+                        constantly working towards making Udaan a more pleasant experience for the users so hurrah to her!
+                </p>
+            </div>
+            <div class="column" >
+                <img  src="https://firebasestorage.googleapis.com/v0/b/food-eaters-1df40.appspot.com/o/WhatsApp%20Image%202022-03-23%20at%209.48.35%20AM%20(2).jpeg?alt=media&token=4d4f018a-2490-4da9-93cc-c9724c088f33" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="100%" height="5%">
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="column" >
+                <img  src="https://firebasestorage.googleapis.com/v0/b/food-eaters-1df40.appspot.com/o/WhatsApp%20Image%202022-03-23%20at%209.48.36%20AM%20(1).jpeg?alt=media&token=a7514445-deb0-43d0-a25c-4fbb42f106be" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="100%">
+              
+            </div>
+            <div class="column" >
+                <h2 class="featurette-heading">Sri Hari<span class="text-muted"> Team Lead</span></h2>
+                <p class="lead">
+                    The master with brains, he's work on  project and made it into what it is today.
+                    He add all his effort into the project and make the project look more attractive!
+                    </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

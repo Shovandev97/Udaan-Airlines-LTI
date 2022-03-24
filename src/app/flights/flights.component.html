@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <style>
+        .main{
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+        </style>
+    </head>
+    <body >
+      <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/home/'+ uid" style="padding: 1rem;cursor: pointer;">Home</span>
+         <span [routerLink]="'/aboutus/'+ uid" style="padding: 1rem;cursor: pointer;">About Us</span>
+         <span [routerLink]="'/mytrips/'+ uid" style="padding: 1rem;cursor: pointer;">My trips</span>
+         <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Logout</span>
+    
+        </div>
+       
+      
+       
+      </mat-toolbar> 
+        <div class= main style="width: 100%;background-image:linear-gradient(to right, blue,skyblue);height: 20%;">
+            <mat-card style="width:90%;height: 43%;" >
+                <mat-form-field appearance="outline" style="width: 23%;padding-right: 2%;">
+                    <mat-label>From</mat-label>
+  
+                    <input  name="from" value={{from}} matInput type="text" placeholder="From" readonly>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" style="width: 23%;padding-right: 2%;">
+                    <mat-label>To</mat-label>
+  
+                    <input  name="to" value={{to}} matInput type="text" placeholder="To" readonly>
+                  </mat-form-field>
+
+                  
+                  <mat-form-field appearance="outline"  style="width: 23%;padding-right: 2%;">
+                    <mat-label>Departure Date</mat-label>
+  
+                    <input  name="departuredate" value={{departuredate}} matInput type="text" placeholder="Departure Date" readonly>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" style="width: 23%;padding-right: 2%;">
+                    <mat-label>Travel Class</mat-label>
+  
+                    <input  name="travelclass" value={{class}} matInput type="text" placeholder="Travel Class" readonly>
+                  </mat-form-field>
+            </mat-card>
+
+            
+            
+        </div>
+
+        <br><br>
+        
+        <div style="padding: 20px;">
+          <b style="text-align: center;width: 16%;padding-right: 2%;">{{from}} to {{to}}</b>
+          
+        </div>
+
+        <div  style="padding: 20px;">
+          
+        <mat-card class="main" *ngFor="let f of flights;let i = index">
+          
+            <img src="{{f['LOGO']}}" style="height:6%;width: 6%;padding-right: 2%;">
+            <b style="font-size: 20px;width: 10%;padding-right: 2%;">{{f['NAME']}}</b>
+            <div style="padding-right: 2%;text-align: center;height: 100%;width: 15%;">
+              <ul >
+                <li style="list-style-type: none;font-size: 30px;">{{f['DEPARTURETIME']}}</li>
+                <br>
+              <li style="list-style-type: none;text-align: center;">{{f['FROMM']}}</li>
+              </ul>
+            </div>
+            <b>-</b>
+            <div style="padding-right: 2%;text-align: center;height: 100%;width:15%">
+              <ul >
+                <li style="list-style-type: none;font-size: 30px;">{{f['ARRIVAL']}}</li>
+                <br>
+              <li style="list-style-type: none;text-align: center;">{{f['TOO']}}</li>
+              </ul>
+            </div>
+            <div style="font-size: 30px;padding-right: 5%;">{{f['TOTALTIME']}}</div>
+            <b style="font-size: 30px;padding-right: 5%;">₹{{f['COST']}}</b>
+            
+            <button [routerLink]="'/flightbooking/'+ f['FIGHTID'] + '/' + totalseats + '/' + uid + '/' + departuredate + '/' + class" mat-raised-button  type="submit" color="primary" style="width: 10%;">Book</button>
+
+
+          </mat-card>
+    </div>
+  
+
+    </body>
+</html>

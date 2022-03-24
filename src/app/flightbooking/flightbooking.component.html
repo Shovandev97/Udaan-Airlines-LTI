@@ -1,0 +1,108 @@
+<html>
+    <head>
+    </head>
+    <body>
+      <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/home/'+ uid" style="padding: 1rem;cursor: pointer;">Home</span>
+         <span [routerLink]="'/aboutus/'+ uid" style="padding: 1rem;cursor: pointer;">About Us</span>
+         <span [routerLink]="'/mytrips/'+ uid" style="padding: 1rem;cursor: pointer;">My trips</span>
+         <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Logout</span>
+    
+        </div>
+       
+      
+       
+      </mat-toolbar> 
+        <div class="row">
+            <div class="column" style="width: 65%;float: left;padding: 10px;padding-top: 50px;">
+              <mat-card *ngFor="let f of flight;let i = index">
+                <div style="height: 6%;text-align: left;">
+                  <img src="{{f['LOGO']}}" style="height:6%;width: 6%;padding-right: 2%;">         
+                  <b style="font-size: 30px;width: 10%;height: 6%;vertical-align: text-top;">{{f['NAME']}}</b>
+                </div>
+                  <br>
+                  <br>
+                <table style="margin-left: auto;margin-right: auto;">
+                  <td>
+                    <tr style="text-align: center;font-size: 30px;"><b>{{f['DEPARTURETIME']}}</b></tr>
+                    <br>
+                  <tr style="text-align: center;">{{f['FROMM']}}</tr>
+                  </td>
+                  <td>
+                    <tr style="text-align: center;font-size: 30px;">----------------------></tr>
+                    
+                  <tr style="text-align: center;">{{f['TOTALTIME']}}</tr>
+                  </td>
+                  <td>
+                    <tr style="text-align: center;font-size: 30px;"><b>{{f['ARRIVAL']}}</b></tr>
+                    <br>
+                  <tr style="text-align: center;">{{f['TOO']}}</tr>
+                  </td>
+
+                </table>
+                <div style="text-align: center;">
+                <b>• Departure Date: {{date}} <br>• Total Seats: {{totalseats}} </b>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                  <img style="padding-right: 2%;" src="https://d274ft55l0imju.cloudfront.net/flights/icons/flights_baggage_icon.svg">
+                  <b  style="padding-right: 6%;">Baggage Policy</b>
+                  <img style="padding-right: 2%;" src="https://d274ft55l0imju.cloudfront.net/flights/icons/fare_rules_hand_baggage.svg">
+                  <b style="padding-right: 2%;">Hand Baggage</b>
+                  <i style="padding-right: 2%;"> 1 piece x 7 kg / person</i>
+                  <img style="padding-right: 2%;" src="https://d274ft55l0imju.cloudfront.net/flights/icons/fare_rules_checkin.svg">
+                  <b style="padding-right: 2%;">Check-in Baggage</b>
+                  <i>1 piece x 15 kg / person</i>
+                </div>
+              </mat-card>
+            </div>
+    
+            <div class="column" style="width: 25%;float: left;padding: 20px;">
+              <mat-card *ngFor="let f of flight;let i = index">
+                <b style="font-size: 20px;">Fare Breakup</b>
+                <br>
+                <br>
+                <b>Total Seats: {{totalseats}}</b>
+                <table >
+                  <tr>
+                    <th style="text-align: left;width: 75%;">Total Base Fare</th>
+                    <td style="text-align: left;width: 25%;">₹ {{totalbaseprice}}</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align: left;width: 75%;">Total Taxes</th>
+                    <td style="text-align: left;width: 25%;">₹ {{totaltax}}</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align: left;width: 75%;">Total Air Fare</th>
+                    <td style="text-align: left;width: 25%;">₹ {{totalairfare}}</td>
+                  </tr>
+                  <tr>
+                    <th style="text-align: left;width: 75%;">Convenience Fee</th>
+                    <td style="text-align: left;width: 25%;">₹ {{conveniencefee}}</td>
+                  </tr>
+                  <tr>
+                    <th><hr class="solid"></th>
+                    <th><hr class="solid"></th>
+                  </tr>
+                  <tr>
+                    <th style="text-align: left;width: 75%;font-size:20px;">Grand Total</th>
+                    <td style="text-align: left;width: 25%;">₹ {{grandtotal}}</td>
+                  </tr>
+                </table>
+              </mat-card>
+              <br>
+              <br>
+              <form (ngSubmit)="formSubmit()">
+
+                <button  mat-raised-button type="submit" color="primary" style="width: 100%;">Confirm Booking</button>
+              </form>
+            </div>
+            
+
+          
+        </div>
+    </body>
+</html>

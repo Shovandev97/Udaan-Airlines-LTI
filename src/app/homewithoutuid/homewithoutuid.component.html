@@ -1,0 +1,113 @@
+<html>
+    <title>Home</title>
+    <head>
+        <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-size: 100% 100%;
+        }
+        .main{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+        .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+      }
+        </style>
+
+    </head>
+    <body background="https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=1600&h=800&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2017%2F12%2Fairplane-wings-twist-in-flight-WING1217.jpg">
+      <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        <div>
+         <span [routerLink]="'/home'" style="padding: 1rem;cursor: pointer;">Home</span>
+         <span [routerLink]="'/aboutus'" style="padding: 1rem;cursor: pointer;">About Us</span>
+         <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Login</span>
+         <span [routerLink]="'/adminlogin'" style="padding: 1rem;cursor: pointer;">Admin Login</span>
+        </div>
+       
+      
+       
+      </mat-toolbar>  
+      
+      <div class="main">
+            
+              <div class="column" style="text-align: center;align-items:center">
+                <b style="color: black;font-size: 50px;">BOOK YOUR <br><br> FLIGHT <br><br> TODAY</b>
+                
+              </div>
+              <div class="column">
+                <div style="background-color:white;padding:20px;width: 70%;">
+                    <h1><b>Flight Booking</b></h1>
+                    
+                    <form (ngSubmit)="formSubmit()">
+
+                      <mat-form-field appearance="outline" style="width: 46.5%;padding-right: 5%;">
+                          <mat-label>From</mat-label>
+                            <input type="text" matInput [(ngModel)] = "bookingdetails.from" name="from" [matAutocomplete]="auto" [formControl]="myControl" required>
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                              </mat-option>
+                            </mat-autocomplete>
+                      </mat-form-field>
+
+                      <mat-form-field appearance="outline" style="width: 46.5%;">
+                        <mat-label>To</mat-label>
+                          <input type="text" matInput matInput [(ngModel)] = "bookingdetails.to" name="to" [matAutocomplete]="aut" [formControl]="myControls" required>
+                          <mat-autocomplete #aut="matAutocomplete">
+                            <mat-option *ngFor="let opti of filteredOption | async " [value]="opti">
+                              {{opti}}
+                            </mat-option>
+                          </mat-autocomplete>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Departure Date</mat-label>
+                          <input matInput matInput [(ngModel)] = "bookingdetails.departuredate" name="departuredate" [matDatepicker]="myDatePicker" [min]="minDate" required  readonly>
+                          <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+                          <mat-datepicker #myDatePicker></mat-datepicker>
+                        </mat-form-field>
+                      
+
+                        <mat-form-field appearance="outline" style="width: 30%;padding-right: 5%;">
+                            <mat-label>Adults(18+) </mat-label>
+                            <input  name="Adults" [(ngModel)] = "bookingdetails.adult" name="adult" matInput type="number" placeholder="Adults" required>      
+                          </mat-form-field>   
+                        
+                          <mat-form-field appearance="outline" style="width: 30%;padding-right: 5%;">
+                            <mat-label>Children(0-17) </mat-label>
+                            <input  name="Children" matInput [(ngModel)] = "bookingdetails.children" name="children" type="number" placeholder="Children" required>      
+                          </mat-form-field>   
+
+                          <mat-form-field appearance="outline" style="width: 30%;">
+                            <mat-label>Travel Class </mat-label>
+                            <mat-select [(ngModel)] = "bookingdetails.class" name="class" required>
+                                <mat-option value="Economy">Economy</mat-option>
+                                <mat-option value="Premium Economy">Premium Economy</mat-option>
+                                <mat-option value="Business Class">Business Class</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                            
+                          
+                    <button mat-raised-button type="submit" color="primary" style="width: 100%;">Show Flights</button>
+            
+                    </form>
+             
+            
+                    
+                    <br><br>
+                   
+                  </div>
+            </div>
+        </div>
+    </body>
+</html>

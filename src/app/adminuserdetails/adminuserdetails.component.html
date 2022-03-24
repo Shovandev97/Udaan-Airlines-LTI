@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            /* Create three equal columns that floats next to each other */
+            .column {
+              float: left;
+              width: 33.33%;
+              padding: 10px;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            </style>
+    </head>
+    <body>
+      <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/adminhome'" style="padding: 1rem;cursor: pointer;">Flight Details</span>
+         <span [routerLink]="'/adminuserdetails'" style="padding: 1rem;cursor: pointer;">User Details</span>
+         <span [routerLink]="'/addflight'" style="padding: 1rem;cursor: pointer;">Add Flight</span>
+         <span [routerLink]="'/adminlogin'" style="padding: 1rem;cursor: pointer;">Logout</span>
+
+        </div>
+      </mat-toolbar>
+        <br>
+        <b style="padding: 20px;font-size: 30px;padding-top: 100px;">View Users</b>
+        <div style="padding: 40px;">
+        <mat-card *ngFor="let u of userdetails;let i = index">
+            <div style="width: 100%;">
+                <div style="float: left;padding-left: 20px;">
+                  <b style="font-size: 30px;">{{u['NAME']}}</b>
+                </div>
+                <div style="float: right;padding-right: 20px;"> 
+                  <b style="font-size: 20px;"># {{u['USERID']}}</b>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="row">
+                <div class="column" style="text-align: center;border: 1px solid blue;">
+                    <b style="font-size: 20px;color: blue;">Mobileno</b>
+                    <p>{{u['MOBILENO']}}</p>
+                </div>
+                <div class="column" style="text-align: center;border: 1px solid blue;">
+                    <b style="font-size: 20px;color: blue;">Email</b>
+                    <p>{{u['EMAIL']}}</p>
+                </div>
+                <div class="column" style="text-align: center;border: 1px solid blue;">
+                    <b style="font-size: 20px;color: blue;">Password</b>
+                    <p>{{u['PASSWORD']}}</p>
+                </div>
+              </div>
+
+        </mat-card>
+    </div>
+    </body>
+</html>

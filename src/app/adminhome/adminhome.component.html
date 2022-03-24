@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <style>
+            * {
+          box-sizing: border-box;
+        }
+        
+        /* Create three equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 25%;
+          padding: 10px;
+          /* Should be removed. Only for demonstration */
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+          </style>
+    </head>
+    <body>
+      <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/adminhome'" style="padding: 1rem;cursor: pointer;">Flight Details</span>
+         <span [routerLink]="'/adminuserdetails'" style="padding: 1rem;cursor: pointer;">User Details</span>
+         <span [routerLink]="'/addflight'" style="padding: 1rem;cursor: pointer;">Add Flight</span>
+         <span [routerLink]="'/adminlogin'" style="padding: 1rem;cursor: pointer;">Logout</span>
+
+        </div>
+      </mat-toolbar>
+        <br>
+        <b style="padding: 20px;font-size: 30px;padding-top: 100px;">All Flights</b>
+        <div style="padding: 40px;">
+ 
+            <mat-card *ngFor="let f of flightdetails;let i = index">
+                <img src="{{f['LOGO']}}" style="height: 10%;width: 10%;padding-right: 2%">
+                <b style="font-size: 20px;">{{f['NAME']}}</b>
+                <br><br>
+                <form (ngSubmit)="formSubmit(f['FIGHTID'])">
+                  <button mat-raised-button type="submit" color="primary" style="width: 30%;float: right;">See Bookings</button>
+                </form>
+                <br><br><br>
+                <div style="width: 100%;">
+                    <div style="float: left;padding-left: 20px;">
+                      <b>DEPARTURE</b>
+                      <br>
+                      <b style="font-size: 20px;">{{f['DEPARTURETIME']}}</b>
+                      <br>
+                      {{f['FROMM']}}
+                    </div>
+                    <div style="float: right;padding-right: 20px;"> 
+                      <b>ARRIVAL</b>
+                      <br>
+                      <b style="font-size: 20px;">{{f['ARRIVAL']}}</b>
+                      <br>
+                      {{f['TOO']}}
+                    </div>
+                    <div style="margin: 0 auto; width: 100px;">
+                        <div>
+                            <img style="width: 80px;height: 80px;" src="https://firebasestorage.googleapis.com/v0/b/deliver-doo.appspot.com/o/367353-removebg-preview.png?alt=media&token=f19ef815-8b04-4525-ab3c-9798cbabd8b2">
+                            <br>
+                            <b style="text-align: center;">{{f['TOTALTIME']}}</b>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="column" style="text-align: center;">
+                          <b style="font-size: 20px;color: blue;">{{f['DEPARTUREDATE']}}</b>
+                          <p>{{f['DEPARTUREDATE']}}</p>
+                        </div>
+                        <div class="column" style="text-align: center;">
+                          <b style="font-size: 20px;color: blue;">Economy Seats Available</b>
+                          <p>{{f['ECONOMY']}}</p>
+                        </div>
+                        <div class="column" style="text-align: center;">
+                          <b style="font-size: 20px;color: blue;">Premium Economy Seats Available</b>
+                          <p>{{f['PREMIUMECONOMY']}}</p>
+                        </div>
+                        <div class="column" style="text-align: center;">
+                          <b style="font-size: 20px;color: blue;">Business Seats Available</b>
+                          <p>{{f['BUSSINESS']}}</p>
+                        </div>
+                      </div>
+
+                 </div>
+            </mat-card>
+        </div>
+
+    </body>
+</html>

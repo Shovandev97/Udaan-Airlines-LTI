@@ -1,0 +1,96 @@
+<html>
+<head>
+</head>
+<body style="background-color:peach;">
+    <mat-toolbar style="justify-content: space-between;">
+       
+        <div> <img style="height: 13%; width:13%; "src="https://thelivenagpur.com/wp-content/uploads/2020/06/udaan.jpg"></div>        
+        <div>
+         <span [routerLink]="'/home/'+ uid" style="padding: 1rem;cursor: pointer;">Home</span>
+         <span [routerLink]="'/aboutus/'+ uid" style="padding: 1rem;cursor: pointer;">About Us</span>
+         <span [routerLink]="'/mytrips/'+ uid" style="padding: 1rem;cursor: pointer;">My trips</span>
+         <span [routerLink]="'/login'" style="padding: 1rem;cursor: pointer;">Logout</span>
+    
+        </div>
+       
+      
+       
+      </mat-toolbar> 
+<div style="text-align:center">
+<img style="width:50%;height:50%;margin-left:auto;margin-right:auto" src="https://firebasestorage.googleapis.com/v0/b/deliver-doo.appspot.com/o/istockphoto-1320330053-170667a.png?alt=media&token=0e13a182-0959-4d9f-95d4-5c2a0106a7a1">
+</div>
+<mat-card style="width:60%;margin-left:auto;margin-right:auto">
+    <b style="font-size: 20px;width:60%;text-align: center;">Traveller Information</b>
+</mat-card>
+    <mat-card style="width:60%;margin-left:auto;margin-right:auto" *ngFor="let item of createRange(totalseat);let index=index;">
+        
+        <table style="width:100%">
+            <tr>  
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Name</mat-label>
+        
+                        <input  matInput [(ngModel)] = "name[index]" name="name" type="name" placeholder="Name" required>
+                      </mat-form-field>
+                </td>         
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Surname</mat-label>
+        
+                        <input  matInput [(ngModel)] = "surname[index]" name="surname" type="surname" placeholder="Surname" required>
+                      </mat-form-field>
+                </td>      
+            </tr>
+            <br>
+            <tr>  
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Age</mat-label>
+        
+                        <input  matInput type="number" [(ngModel)] = "age[index]" name="age" placeholder="Age" required>
+                      </mat-form-field>
+                </td>         
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Phone no</mat-label>
+        
+                        <input  matInput type="tel" [(ngModel)] = "phoneno[index]" name="phoneno" placeholder="Phone no" required>
+                      </mat-form-field>
+                </td>      
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Passport no</mat-label>
+        
+                        <input  matInput type="text" [(ngModel)] = "passportno[index]" name="passportno" placeholder="Passport No" required>
+                      </mat-form-field>
+                </td>   
+                <td>
+                    <mat-form-field appearance="outline" style="width: 90%;">
+                        <mat-label>Seatno </mat-label>
+                        <mat-select name="seatno" required [(ngModel)] = "selectedseatno[index]" >
+  
+                            <mat-option *ngFor="let seat of seatno" [value]="seat['SEATNO']">{{seat['SEATNO']}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+
+        </table>
+        <hr class="solid">
+    </mat-card>
+    <br>
+    <form (ngSubmit)="formSubmit()" style="width:100%;margin-left:auto;margin-right:auto;text-align: center;">
+
+      <button mat-raised-button type="submit" color="primary" style="width:60%;margin-left:auto;margin-right:auto">Add details</button>
+    </form>
+
+
+
+<br><br>
+
+
+
+</body>
+</html>
